@@ -27,7 +27,6 @@ Mitjançant la llibreria 'matplotlib', implementa una funció anomenada
 'line_graph(x,y)', s'ha de realitzar únicament la configuració
 per a la gràfica (sense mostrar res en pantalla).
 D'aquesta forma, hauràs de configurar el títol, que serà 'Graph';
-els labels dels eixos, que seran 'Axis X' i 'Axis I' i activar
 el grid.
 
 Pots trobar la documentació de la llibreria 'matplotlib' en el
@@ -51,9 +50,12 @@ import matplotlib.pyplot as plt
 # Esta función deberá configurar la gráfica en la variable plt
 # Aquesta funció haurà de configurar la gràfica en la variable plt
 def line_graph(x, y):
-    # Write here your code
-    pass
-
+    plt.plot(x, y, color='red', marker='o', linestyle='-')
+    plt.title("Graph")       # Título de la gráfica
+    plt.xlabel("Axis X")                   # Etiqueta eje X
+    plt.ylabel("Axis Y")                   # Etiqueta eje Y
+    
+    plt.show()
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# line_graph([1, 2, 3, 4, 5], [2, 4, 6, 8, 10])
+line_graph([1, 2, 3, 4, 5], [2, 4, 6, 8, 10])

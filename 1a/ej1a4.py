@@ -34,9 +34,18 @@ Exemple:
 '''
 
 def count_vowels(text_chain:str):
-    # Write here your code
-    pass
+
+    vocales = ['a', 'e', 'i', 'o', 'u','A', 'E', 'I', 'O', 'U'] #Creamos una lista con las vocales
+    contador = 0 #Iniciamos un contador de vocales
+
+    for letra in text_chain: #Iteramos letra por letra
+        if letra in vocales: #Comprobamos si la letra esta dentro de la lista
+            contador += 1 #Si se encuentra una vocal el contador suma 1
+            print(f"Vocal encontrada: {letra}") #Entonces imprime la vocal encontrada
+    
+    print(contador)
+    
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(count_vowels("Hello world, this is an example."))
+(count_vowels("Hello world, this is an example."))

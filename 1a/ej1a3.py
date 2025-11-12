@@ -31,10 +31,31 @@ Exemple:
 
 '''
 
-def invert_text(text_chain:str):
-    # Write here your code
-    pass
+def invert_text(text_chain: str):
+    resultado = [] #Creamos una lista para almacenar letra por letra
 
-# Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
-# Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(invert_text("Hello world!"))
+    # Recorremos cada letra y la agregamos a la lista
+    for letra in text_chain:
+        resultado.append(letra)
+
+    ''' Unimos las letras invertidas y devolvemos el resultado
+     Utilizamos [::-1] para invertir la lista
+     La función .join es muy util para convertir listas en str
+     La función .join se compone de 'separador'.join(iterable)
+     En este caso no utilzamos seprador porque en una de las posiciónes de la lista
+     tenemos guardado el espació entre palabras.
+
+     Ej:
+     letras = ['H', 'o', 'l', 'a']
+     resultado = '/'.join(letras)
+
+     salida:
+     H/o/l/a
+     '''
+
+    return ''.join(resultado[::-1]) 
+
+
+# Probar la función
+texto_invertido = invert_text("Hello world!")
+print(texto_invertido)

@@ -42,9 +42,36 @@ Exemple:
 '''
 
 def sum_odd_numbers(list_numbers):
-    # Write here your code
-    pass
+    # Verificamos que la entrada sea una lista
+    if not isinstance(list_numbers, list):
+        raise ValueError("Debes proporcionar una lista de números.")
 
+    total = 0
+
+    for numero in list_numbers:
+        # Validaciones
+        if not isinstance(numero, int):
+            raise ValueError(f"El número {numero} no es un entero.")
+        if numero < 0:
+            raise ValueError(f"El número {numero} debe ser mayor o igual a 0.")
+
+        # Suma de números impares
+        if numero % 2 != 0:
+            total += numero
+            print(f"Sumando el número {numero}, suma acumulada: {total}\n")
+        else:
+            print(f"El número {numero} es par, no se suma\n")
+
+    return total
+
+
+# Ejecutar la función y manejar errores
+try:
+    total = sum_odd_numbers([1, 2, 3, 4, 5, 10, 21, 100])
+    print(f"La suma total es: {total}")
+
+except ValueError as e:
+    print(f"Error: {e}")
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(sum_odd_numbers([1, 2, 3, 4, 5, 10, 21, 100]))
+

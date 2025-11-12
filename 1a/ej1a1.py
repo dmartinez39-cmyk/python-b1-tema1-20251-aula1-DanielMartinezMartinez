@@ -38,11 +38,28 @@ Exemple:
      55
 
 '''
-
-def fibonacci(fibonacci_number):
-    # Write here your code
-    pass
-
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(fibonacci(10))
+
+def fibonacci(fibonacci_number: int): #Definimos la función fibonacci y convertimos a valor int
+
+    if not isinstance(fibonacci_number, int): #Comprobamos que el valor sea un entero, sino enviara ValueError
+        raise ValueError("El valor debe ser un número entero.")
+    if fibonacci_number < 0: #Comprobamos que el valor sea mayro que 0, sino enviara ValueError
+        raise ValueError("El valor debe ser mayor o igual a 0.")
+    
+    #Caso Base
+    if fibonacci_number == 0: 
+        return 0
+    elif fibonacci_number == 1:
+        return 1
+    else:
+        return fibonacci(fibonacci_number-1)+fibonacci(fibonacci_number-2) #Recursión
+    
+#Capturamos posibles errores 
+try:
+    resultado = fibonacci(10)
+    print(f"Resultado final: {resultado}") #Si el programa se ejecuta de manera correcta imprimira el resultado
+except ValueError as e:
+    print(f"Error: {e}") #Si el programa detecta un error imprimira el problema detectado
+

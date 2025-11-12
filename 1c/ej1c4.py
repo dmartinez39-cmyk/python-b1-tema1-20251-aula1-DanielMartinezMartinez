@@ -41,14 +41,20 @@ Exemple:
 
 
 def is_palindrome(word):
-    # Write here your code
-    pass
+    # Normalizamos el texto: sin espacios y en minúsculas
+    word = word.replace(" ", "").lower()
+
+    # Caso base: si tiene 0 o 1 letra, es palíndromo
+    if len(word) <= 1:
+        return True
+    # Si la primera y última letra son distintas, no es palíndromo
+    elif word[0] != word[-1]:
+        return False
+    else:
+        # Paso recursivo: verificamos el interior de la palabra
+        return is_palindrome(word[1:-1])
 
 
-# Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
-# Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# word = "level"
-# print(f"Is '{word}' word palindrome?", is_palindrome(word))
-#
-# word = "juan"
-# print(f"Is '{word}' word palindrome?", is_palindrome(word))
+# Ejemplo de uso
+word = "racecar"
+print(is_palindrome(word))  # 👉 True
